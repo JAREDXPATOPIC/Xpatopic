@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba Negocios</title>
+    <style>
+        /* Reseteo Básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Estilos Generales */
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* Encabezado */
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Sección General */
+        section {
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Servicios */
+        .service {
+            margin: 20px 0;
+        }
+
+        .service h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        /* Formulario de Contacto */
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        form input, form textarea, form button {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        form button:hover {
+            background: #555;
+        }
+
+        /* Pie de Página */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <div class="container">
+            <h1>Prueba Negocios</h1>
+            <p>Soluciones efectivas para tu empresa</p>
+            <nav>
+                <a href="#about">Sobre Nosotros</a>
+                <a href="#services">Servicios</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección Sobre Nosotros -->
+    <section id="about">
+        <div class="container">
+            <h2>Sobre Nosotros</h2>
+            <p>En Prueba Negocios, nos especializamos en brindar soluciones innovadoras para ayudar a las empresas a crecer y alcanzar sus objetivos.</p>
+        </div>
+    </section>
+
+    <!-- Sección Servicios -->
+    <section id="services">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <div class="service">
+                <h3>Consultoría</h3>
+                <p>Ofrecemos consultoría empresarial para optimizar tus procesos y mejorar la eficiencia.</p>
+            </div>
+            <div class="service">
+                <h3>Desarrollo Web</h3>
+                <p>Desarrollamos sitios web personalizados para darle a tu negocio una presencia online profesional.</p>
+            </div>
+            <div class="service">
+                <h3>Marketing Digital</h3>
+                <p>Implementamos estrategias de marketing digital para aumentar la visibilidad de tu marca.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>Contáctanos para una consulta gratuita</p>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Tu Nombre" required>
+                <input type="email" id="email" placeholder="Tu Correo" required>
+                <textarea id="message" placeholder="Tu Mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <p id="responseMessage"></p>
+        </div>
+    </section>
+
+    <!-- Pie de Página -->
+    <footer>
+        <p>&copy; 2024 Prueba Negocios. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Enviar formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            // Mensaje de respuesta simulado
+            const responseMessage = document.getElementById('responseMessage');
+            responseMessage.textContent = 'Gracias por contactarnos. Nos pondremos en contacto contigo pronto.';
+            responseMessage.style.color = 'green';
+
+            // Limpiar formulario
+            this.reset();
+        });
+    </script>
+</body>
+</html>
