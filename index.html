@@ -7,46 +7,46 @@
 </head>
 <body>
   <h2>Formulario de Contacto</h2>
-  
-  <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbwyu-SvcuJqeq2vcTumjXeZ6Ztd86lNJfbBEwtn7UULB5BUCLNDuMbpdHrjTTfVxpwTqg/exechttps://script.google.com/macros/s/AKfycbwyu-SvcuJqeq2vcTumjXeZ6Ztd86lNJfbBEwtn7UULB5BUCLNDuMbpdHrjTTfVxpwTqg/exec">
+
+  <form id="contactForm" action="https://script.google.com/macros/s/AKfycbwyu-SvcuJqeq2vcTumjXeZ6Ztd86lNJfbBEwtn7UULB5BUCLNDuMbpdHrjTTfVxpwTqg/exec" method="POST">
     <label for="name">Nombre:</label>
-    <input type="text" id="name" name="name" placeholder="Tu nombre" required>
-    <br><br>
+    <input type="text" id="name" name="name" required><br><br>
 
     <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
-    <br><br>
+    <input type="email" id="email" name="email" required><br><br>
 
-    <label for="message">Mensaje:</label>
-    <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
-    <br><br>
+    <label for="message">Mensaje:</label><br>
+    <textarea id="message" name="message" rows="4" required></textarea><br><br>
 
-    <button type="submit">Enviar</button>
+    <input type="submit" value="Enviar">
   </form>
 
+  <div id="responseMessage"></div>
+
   <script>
-    document.getElementById("contactForm").addEventListener("submit", function(event) {
-      event.preventDefault(); // Prevenir el envío por defecto del formulario
+    document.getElementById("contactForm").onsubmit = function(event) {
+      event.preventDefault(); // Evitar el comportamiento por defecto de enviar el formulario
 
-      var formData = new FormData(this); // Crear un objeto FormData con los datos del formulario
+      // Obtener los datos del formulario
+      const formData = new FormData(document.getElementById("contactForm"));
 
-      fetch(this.action, {
+      // Enviar los datos al script de Google Apps
+      fetch("https://script.google.com/macros/s/AKfycbwyu-SvcuJqeq2vcTumjXeZ6Ztd86lNJfbBEwtn7UULB5BUCLNDuMbpdHrjTTfVxpwTqg/exec", {
         method: "POST",
         body: formData
       })
       .then(response => response.json())
       .then(data => {
         if (data.success) {
-          alert("¡Mensaje enviado con éxito!");
+          document.getElementById("responseMessage").innerText = "Mensaje enviado con éxito.";
         } else {
-          alert("Hubo un problema al enviar el mensaje.");
+          document.getElementById("responseMessage").innerText = "Hubo un error, por favor intenta de nuevo.";
         }
       })
       .catch(error => {
-        alert("Hubo un error. Por favor, intenta de nuevo.");
-        console.error(error);
+        document.getElementById("responseMessage").innerText = "Hubo un error, por favor intenta de nuevo.";
       });
-    });
+    };
   </script>
 </body>
 </html>
