@@ -1,218 +1,52 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XPATOPIC - Soluciones Empresariales</title>
-    <style>
-        /* Reseteo Básico */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
-        }
-
-        /* Estilos Generales */
-        body {
-            line-height: 1.6;
-            color: #333;
-            background: #f4f4f9;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        /* Encabezado */
-        header {
-            background: #0056b3;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.8em;
-        }
-
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #d9edf7;
-        }
-
-        /* Secciones */
-        section {
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            color: #0056b3;
-        }
-
-        section p {
-            font-size: 1.1em;
-            margin-bottom: 15px;
-        }
-
-        /* Servicios */
-        .service {
-            margin: 20px 0;
-            padding: 20px;
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .service h3 {
-            font-size: 1.6em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .service p {
-            color: #555;
-        }
-
-        /* Formulario de Contacto */
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 100%;
-            max-width: 400px;
-            margin: 20px auto;
-        }
-
-        form input, form textarea, form button {
-            padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        form input, form textarea {
-            font-size: 1em;
-        }
-
-        form button {
-            background: #0056b3;
-            color: #fff;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background 0.3s ease;
-        }
-
-        form button:hover {
-            background: #003f7f;
-        }
-
-        #responseMessage {
-            margin-top: 10px;
-            font-size: 1em;
-        }
-
-        /* Pie de Página */
-        footer {
-            background: #0056b3;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
 </head>
 <body>
-    <!-- Encabezado -->
-    <header>
-        <div class="container">
-            <h1>XPATOPIC</h1>
-            <p>Soluciones Innovadoras para Empresas Exitosas</p>
-            <nav>
-                <a href="#about">Sobre Nosotros</a>
-                <a href="#services">Servicios</a>
-                <a href="#contact">Contacto</a>
-            </nav>
-        </div>
-    </header>
+  <h2>Formulario de Contacto</h2>
+  
+  <form id="contactForm" method="POST" action="https://script.google.com/macros/s/AKfycbwyu-SvcuJqeq2vcTumjXeZ6Ztd86lNJfbBEwtn7UULB5BUCLNDuMbpdHrjTTfVxpwTqg/exec">
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+    <br><br>
 
-    <!-- Sección Sobre Nosotros -->
-    <section id="about">
-        <div class="container">
-            <h2>Sobre Nosotros</h2>
-            <p>En <strong>XPATOPIC</strong>, nos enorgullece ofrecer soluciones tecnológicas de vanguardia que ayudan a las empresas a innovar, optimizar y destacar en el mercado competitivo.</p>
-        </div>
-    </section>
+    <label for="email">Correo electrónico:</label>
+    <input type="email" id="email" name="email" placeholder="Tu correo electrónico" required>
+    <br><br>
 
-    <!-- Sección Servicios -->
-    <section id="services">
-        <div class="container">
-            <h2>Nuestros Servicios</h2>
-            <div class="service">
-                <h3>Consultoría Empresarial</h3>
-                <p>Identificamos oportunidades para potenciar el crecimiento y maximizar la productividad en tu negocio.</p>
-            </div>
-            <div class="service">
-                <h3>Desarrollo de Software</h3>
-                <p>Diseñamos soluciones personalizadas para transformar tus procesos empresariales.</p>
-            </div>
-            <div class="service">
-                <h3>Marketing y Branding</h3>
-                <p>Creamos estrategias únicas que posicionan tu marca de manera efectiva y atractiva.</p>
-            </div>
-        </div>
-    </section>
+    <label for="message">Mensaje:</label>
+    <textarea id="message" name="message" placeholder="Tu mensaje" required></textarea>
+    <br><br>
 
-    <!-- Sección de Contacto -->
-    <section id="contact">
-        <div class="container">
-            <h2>Contacto</h2>
-            <p>¿Interesado en nuestras soluciones? ¡Escríbenos!</p>
-            <form id="contactForm">
-                <input type="text" id="name" placeholder="Tu Nombre" required>
-                <input type="email" id="email" placeholder="Tu Correo" required>
-                <textarea id="message" placeholder="Tu Mensaje" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-            <p id="responseMessage"></p>
-        </div>
-    </section>
+    <button type="submit">Enviar</button>
+  </form>
 
-    <!-- Pie de Página -->
-    <footer>
-        <p>&copy; 2024 XPATOPIC. Todos los derechos reservados.</p>
-    </footer>
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevenir el envío por defecto del formulario
 
-    <script>
-        // Enviar formulario de contacto
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita el envío del formulario
+      var formData = new FormData(this); // Crear un objeto FormData con los datos del formulario
 
-            // Mensaje de respuesta
-            const responseMessage = document.getElementById('responseMessage');
-            responseMessage.textContent = '¡Gracias por tu mensaje! Nos pondremos en contacto contigo a la brevedad.';
-            responseMessage.style.color = 'green';
-
-            // Limpiar formulario
-            this.reset();
-        });
-    </script>
+      fetch(this.action, {
+        method: "POST",
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          alert("¡Mensaje enviado con éxito!");
+        } else {
+          alert("Hubo un problema al enviar el mensaje.");
+        }
+      })
+      .catch(error => {
+        alert("Hubo un error. Por favor, intenta de nuevo.");
+        console.error(error);
+      });
+    });
+  </script>
 </body>
 </html>
