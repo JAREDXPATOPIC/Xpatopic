@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prueba Negocios</title>
+    <title>XPATOPIC - Soluciones Empresariales</title>
     <style>
         /* Reseteo Básico */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         /* Estilos Generales */
         body {
             line-height: 1.6;
             color: #333;
+            background: #f4f4f9;
         }
 
         .container {
-            width: 80%;
+            width: 90%;
             max-width: 1200px;
             margin: auto;
         }
 
         /* Encabezado */
         header {
-            background: #333;
+            background: #0056b3;
             color: #fff;
             padding: 20px 0;
             text-align: center;
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
         }
 
         header p {
@@ -47,27 +48,48 @@
             margin: 0 15px;
             text-decoration: none;
             font-weight: bold;
+            transition: color 0.3s ease;
         }
 
-        /* Sección General */
+        nav a:hover {
+            color: #d9edf7;
+        }
+
+        /* Secciones */
         section {
-            padding: 20px 0;
+            padding: 30px 0;
             text-align: center;
         }
 
-        h2 {
-            font-size: 2em;
+        section h2 {
+            font-size: 2.2em;
             margin-bottom: 20px;
+            color: #0056b3;
+        }
+
+        section p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
         }
 
         /* Servicios */
         .service {
             margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .service h3 {
-            font-size: 1.5em;
+            font-size: 1.6em;
+            margin-bottom: 10px;
             color: #333;
+        }
+
+        .service p {
+            color: #555;
         }
 
         /* Formulario de Contacto */
@@ -80,30 +102,40 @@
         }
 
         form input, form textarea, form button {
-            padding: 10px;
+            padding: 12px;
             margin: 10px 0;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 5px;
         }
 
+        form input, form textarea {
+            font-size: 1em;
+        }
+
         form button {
-            background: #333;
+            background: #0056b3;
             color: #fff;
             cursor: pointer;
             font-weight: bold;
+            transition: background 0.3s ease;
         }
 
         form button:hover {
-            background: #555;
+            background: #003f7f;
+        }
+
+        #responseMessage {
+            margin-top: 10px;
+            font-size: 1em;
         }
 
         /* Pie de Página */
         footer {
-            background: #333;
+            background: #0056b3;
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            margin-top: 20px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -111,8 +143,8 @@
     <!-- Encabezado -->
     <header>
         <div class="container">
-            <h1>Prueba Negocios</h1>
-            <p>Soluciones efectivas para tu empresa</p>
+            <h1>XPATOPIC</h1>
+            <p>Soluciones Innovadoras para Empresas Exitosas</p>
             <nav>
                 <a href="#about">Sobre Nosotros</a>
                 <a href="#services">Servicios</a>
@@ -125,7 +157,7 @@
     <section id="about">
         <div class="container">
             <h2>Sobre Nosotros</h2>
-            <p>En Prueba Negocios, nos especializamos en brindar soluciones innovadoras para ayudar a las empresas a crecer y alcanzar sus objetivos.</p>
+            <p>En <strong>XPATOPIC</strong>, nos enorgullece ofrecer soluciones tecnológicas de vanguardia que ayudan a las empresas a innovar, optimizar y destacar en el mercado competitivo.</p>
         </div>
     </section>
 
@@ -134,16 +166,16 @@
         <div class="container">
             <h2>Nuestros Servicios</h2>
             <div class="service">
-                <h3>Consultoría</h3>
-                <p>Ofrecemos consultoría empresarial para optimizar tus procesos y mejorar la eficiencia.</p>
+                <h3>Consultoría Empresarial</h3>
+                <p>Identificamos oportunidades para potenciar el crecimiento y maximizar la productividad en tu negocio.</p>
             </div>
             <div class="service">
-                <h3>Desarrollo Web</h3>
-                <p>Desarrollamos sitios web personalizados para darle a tu negocio una presencia online profesional.</p>
+                <h3>Desarrollo de Software</h3>
+                <p>Diseñamos soluciones personalizadas para transformar tus procesos empresariales.</p>
             </div>
             <div class="service">
-                <h3>Marketing Digital</h3>
-                <p>Implementamos estrategias de marketing digital para aumentar la visibilidad de tu marca.</p>
+                <h3>Marketing y Branding</h3>
+                <p>Creamos estrategias únicas que posicionan tu marca de manera efectiva y atractiva.</p>
             </div>
         </div>
     </section>
@@ -152,7 +184,7 @@
     <section id="contact">
         <div class="container">
             <h2>Contacto</h2>
-            <p>Contáctanos para una consulta gratuita</p>
+            <p>¿Interesado en nuestras soluciones? ¡Escríbenos!</p>
             <form id="contactForm">
                 <input type="text" id="name" placeholder="Tu Nombre" required>
                 <input type="email" id="email" placeholder="Tu Correo" required>
@@ -165,7 +197,7 @@
 
     <!-- Pie de Página -->
     <footer>
-        <p>&copy; 2024 Prueba Negocios. Todos los derechos reservados.</p>
+        <p>&copy; 2024 XPATOPIC. Todos los derechos reservados.</p>
     </footer>
 
     <script>
@@ -173,9 +205,9 @@
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Evita el envío del formulario
 
-            // Mensaje de respuesta simulado
+            // Mensaje de respuesta
             const responseMessage = document.getElementById('responseMessage');
-            responseMessage.textContent = 'Gracias por contactarnos. Nos pondremos en contacto contigo pronto.';
+            responseMessage.textContent = '¡Gracias por tu mensaje! Nos pondremos en contacto contigo a la brevedad.';
             responseMessage.style.color = 'green';
 
             // Limpiar formulario
