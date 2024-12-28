@@ -2,51 +2,68 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Contacto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Descripción de mi sitio web">
+  <meta name="keywords" content="HTML, CSS, JavaScript, ejemplo">
+  <meta name="author" content="Tu Nombre">
+  <title>Mi Sitio Web</title>
+  <!-- Icono para la web -->
+  <link rel="icon" href="ruta.png" type="image/png">
+  <link rel="stylesheet" href="ruta.css">
+  <script src="ruta.js"></script>
 </head>
 <body>
-  <h2>Formulario de Contacto</h2>
-<hr>
-  <form id="contactForm" action="hhttps://script.google.com/macros/s/AKfycbwcqxxOfTqBn8l5r3uWMDH0YWkHbUrbXw13jhIH3m5J9qZK6gen38oggU65YsF0OsI7Ow/exec">
-    <label for="name">Nombre:</label>
-    <input type="text" id="name" name="name" required><br><br>
+  <h1>Registro de Clientes</h1>
+  <form id="clientForm">
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" name="usuario" required><br><br>
 
-    <label for="email">Correo electrónico:</label>
-    <input type="email" id="email" name="email" required><br><br>
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" name="edad" required><br><br>
 
-    <label for="message">Mensaje:</label><br>
-    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo" required><br><br>
 
-    <input type="submit" value="Enviar">
+    <label for="numero">Número:</label>
+    <input type="text" id="numero" name="numero" required><br><br>
+
+    <label for="contraseña">Contraseña:</label>
+    <input type="password" id="contraseña" name="contraseña" required><br><br>
+
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado">
+      <option value="Activo">Activo</option>
+      <option value="Inactivo">Inactivo</option>
+    </select><br><br>
+
+    <button type="button" onclick="enviarDatos()">Registrar</button>
   </form>
 
-  <div id="responseMessage"></div>
-
   <script>
-    document.getElementById("contactForm").onsubmit = function(event) {
-      event.preventDefault(); // Evitar el comportamiento por defecto de enviar el formulario
+    async function enviarDatos() {
+      const url = "TU_URL_DEL_SCRIPT"; // Reemplaza con tu URL de Apps Script
 
-      // Obtener los datos del formulario
-      const formData = new FormData(document.getElementById("contactForm"));
+      const data = {
+        id: "", // Si no tienes un ID automático, déjalo vacío
+        usuario: document.getElementById("usuario").value,
+        edad: document.getElementById("edad").value,
+        correo: document.getElementById("correo").value,
+        numero: document.getElementById("numero").value,
+        contraseña: document.getElementById("contraseña").value,
+        estado: document.getElementById("estado").value
+      };
 
-      // Enviar los datos al script de Google Apps
-      fetch("https://script.google.com/macros/s/AKfycbwcqxxOfTqBn8l5r3uWMDH0YWkHbUrbXw13jhIH3m5J9qZK6gen38oggU65YsF0OsI7Ow/exec", {
+      const response = await fetch(url, {
         method: "POST",
-        body: formData
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          document.getElementById("responseMessage").innerText = "Mensaje enviado con éxito.";
-        } else {
-          document.getElementById("responseMessage").innerText = "Hubo un error, por favor intenta de nuevo.";
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
         }
-      })
-      .catch(error => {
-        document.getElementById("responseMessage").innerText = "Hubo un error, por favor intenta de nuevo.";
       });
-    };
+
+      const result = await response.text();
+      alert(result);
+    }
   </script>
 </body>
 </html>
