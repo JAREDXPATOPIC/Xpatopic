@@ -36,34 +36,27 @@
   </form>
 
   <script>
-    // URL de tu Web App en Google Apps Script
     const scriptURL = "https://script.google.com/macros/s/AKfycbyLtOqfCynpVBEbcHQbNLBUaLR31NmhuSDcaTAJCDZwqYO_iUNfCd09-gbR-1RzZvLH/exec";
 
     function sendData() {
-      // Obtiene los datos del formulario
       const form = document.getElementById('clientForm');
       const formData = new FormData(form);
-
-      // Convierte los datos en un objeto JSON
       const data = Object.fromEntries(formData.entries());
 
-      // Envía los datos al script
       fetch(scriptURL, {
         method: "POST",
         body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json"
-        }
+        headers: { "Content-Type": "application/json" }
       })
-        .then(response => {
-          if (response.ok) {
-            alert("Datos enviados correctamente.");
-            form.reset(); // Limpia el formulario
-          } else {
-            alert("Error al enviar los datos.");
-          }
+        .then(response => response.text())
+        .then(message => {
+          alert("Respuesta del servidor: " + message);
+          form.reset();
         })
-        .catch(error => console.error("Error:", error));
+        .catch(error => {
+          console.error("Error al enviar datos:", error);
+          alert("Error al enviar datos.");
+        });
     }
   </script>
 </body>
