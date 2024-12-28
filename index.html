@@ -2,67 +2,68 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <meta name="description" content="Descripción de mi sitio web">
-  <meta name="keywords" content="HTML, CSS, JavaScript, ejemplo">
-  <meta name="author" content="Tu Nombre">
-  <title>Mi Sitio Web</title>
-  <!-- Icono para la web -->
-  <link rel="icon" href="ruta.png" type="image/png">
-  <link rel="stylesheet" href="ruta.css">
-  <script src="ruta.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Clientes</title>
 </head>
 <body>
   <h1>Registro de Clientes</h1>
   <form id="clientForm">
+    <label for="id">ID:</label>
+    <input type="text" id="id" name="id" placeholder="Ingrese el ID"><br><br>
+    
     <label for="usuario">Usuario:</label>
-    <input type="text" id="usuario" name="usuario" required><br><br>
-
+    <input type="text" id="usuario" name="usuario" placeholder="Ingrese el usuario"><br><br>
+    
     <label for="edad">Edad:</label>
-    <input type="number" id="edad" name="edad" required><br><br>
-
+    <input type="number" id="edad" name="edad" placeholder="Ingrese la edad"><br><br>
+    
     <label for="correo">Correo:</label>
-    <input type="email" id="correo" name="correo" required><br><br>
-
+    <input type="email" id="correo" name="correo" placeholder="Ingrese el correo"><br><br>
+    
     <label for="numero">Número:</label>
-    <input type="text" id="numero" name="numero" required><br><br>
-
+    <input type="tel" id="numero" name="numero" placeholder="Ingrese el número"><br><br>
+    
     <label for="contraseña">Contraseña:</label>
-    <input type="password" id="contraseña" name="contraseña" required><br><br>
-
+    <input type="password" id="contraseña" name="contraseña" placeholder="Ingrese la contraseña"><br><br>
+    
     <label for="estado">Estado:</label>
     <select id="estado" name="estado">
       <option value="Activo">Activo</option>
       <option value="Inactivo">Inactivo</option>
     </select><br><br>
-
-    <button type="button" onclick="enviarDatos()">Registrar</button>
+    
+    <button type="button" onclick="sendData()">Enviar</button>
   </form>
 
   <script>
-    async function enviarDatos() {
-      const url = "AKfycbyLtOqfCynpVBEbcHQbNLBUaLR31NmhuSDcaTAJCDZwqYO_iUNfCd09-gbR-1RzZvLH"; // Reemplaza con tu URL de Apps Script
+    // URL de tu Web App en Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/AKfycbyLtOqfCynpVBEbcHQbNLBUaLR31NmhuSDcaTAJCDZwqYO_iUNfCd09-gbR-1RzZvLH/exec";
 
-      const data = {
-        id: "", // Si no tienes un ID automático, déjalo vacío
-        usuario: document.getElementById("usuario").value,
-        edad: document.getElementById("edad").value,
-        correo: document.getElementById("correo").value,
-        numero: document.getElementById("numero").value,
-        contraseña: document.getElementById("contraseña").value,
-        estado: document.getElementById("estado").value
-      };
+    function sendData() {
+      // Obtiene los datos del formulario
+      const form = document.getElementById('clientForm');
+      const formData = new FormData(form);
 
-      const response = await fetch(url, {
+      // Convierte los datos en un objeto JSON
+      const data = Object.fromEntries(formData.entries());
+
+      // Envía los datos al script
+      fetch(scriptURL, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json"
         }
-      });
-
-      const result = await response.text();
-      alert(result);
+      })
+        .then(response => {
+          if (response.ok) {
+            alert("Datos enviados correctamente.");
+            form.reset(); // Limpia el formulario
+          } else {
+            alert("Error al enviar los datos.");
+          }
+        })
+        .catch(error => console.error("Error:", error));
     }
   </script>
 </body>
